@@ -8,3 +8,5 @@ set -e
 echo "setup pkgsite..."
 
 echo "link pkgsite executable..."
+
+echo "other change..."
