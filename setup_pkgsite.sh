@@ -9,7 +9,6 @@ set -e
 #setup pkgsite
 git clone https://github.com/golang/pkgsite.git
 cd pkgsite
-#go mod tidy
 go install ./cmd/pkgsite
 go version
 
