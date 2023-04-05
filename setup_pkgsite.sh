@@ -11,6 +11,8 @@ git clone https://github.com/golang/pkgsite.git
 cd pkgsite
 go install ./cmd/pkgsite
 
-echo "pkgsite version: `pkgsite -v`"
+#echo "pkgsite version: `pkgsite -v`"	# doesn't really exist
 
-echo "other change..."
+# now call:
+# ./start_pkgsite.sh path/to/go/library
+
