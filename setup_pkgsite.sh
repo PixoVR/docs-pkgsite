@@ -10,7 +10,7 @@ set -e
 git clone https://github.com/golang/pkgsite.git
 cd pkgsite
 #go mod tidy
-#go install ./cmd/pkgsite
+go install ./cmd/pkgsite
 go version
 
 echo "link pkgsite executable..."
