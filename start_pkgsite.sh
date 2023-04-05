@@ -17,7 +17,7 @@ HOST="${3:-localhost}"	# default to localhost
 cd $SOURCE
 pkgsite \
 	-http $HOST:$PORT \
-	`#-static $DIR/html` \
+	`#-static $DIR/static` \
 	-dev \
 	-gorepo /usr/local/go/src \
 	"$SOURCE"
