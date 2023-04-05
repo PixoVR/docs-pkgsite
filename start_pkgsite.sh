@@ -10,6 +10,10 @@ HOST="${3:-localhost}"	# default to localhost
 
 #echo PORT:$PORT SOURCE:$SOURCE
 
+# modify the vars in static/shared/header/header.css,
+# for instance, to change the style.  This will only
+# work with -dev flag below.
+
 cd $SOURCE
 pkgsite \
 	-http $HOST:$PORT \

@@ -7,7 +7,7 @@ cd $DIR
 set -e
 
 #setup pkgsite
-git clone https://github.com/golang/pkgsite.git
+git clone --recursive https://github.com/golang/pkgsite.git
 cd pkgsite
 go install ./cmd/pkgsite
 
