@@ -4,11 +4,15 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
 # path to root of repository to serve docs for
-SOURCE="${1:-$PWD}"
+SOURCE="${1:-$DIR}"
 PORT="${2:-3000}"	# default to 3000 if none present
 HOST="${3:-localhost}"	# default to localhost
 
+SOURCE=`realpath $SOURCE`
+
 echo Starting pkgsite: $HOST:$PORT for $SOURCE
+
+ls -al static
 
 # modify the vars in static/shared/header/header.css,
 # for instance, to change the style.  This will only
@@ -17,7 +21,7 @@ echo Starting pkgsite: $HOST:$PORT for $SOURCE
 cd $SOURCE
 pkgsite \
 	-http $HOST:$PORT \
-	`#-static $DIR/static` \
+	-static $DIR/static \
 	-dev \
-	`#-gorepo /usr/local/go/src` \
+	-gorepo /usr/local/go/src \
 	"$SOURCE"
