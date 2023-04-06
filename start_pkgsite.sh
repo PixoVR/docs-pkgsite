@@ -6,7 +6,7 @@ cd $DIR
 # path to root of repository to serve docs for
 SOURCE="${1:-$DIR}"
 PORT="${2:-3000}"	# default to 3000 if none present
-HOST="${3:-0.0.0.0}"	# default to localhost
+HOST="${3:-}"		# default to empty
 
 SOURCE=`realpath $SOURCE`
 
