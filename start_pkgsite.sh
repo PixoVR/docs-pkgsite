@@ -12,8 +12,6 @@ SOURCE=`realpath $SOURCE`
 
 echo Starting pkgsite: $HOST:$PORT for $SOURCE
 
-ls -al static
-
 # modify the vars in static/shared/header/header.css,
 # for instance, to change the style.  This will only
 # work with -dev flag below.
