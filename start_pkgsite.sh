@@ -8,7 +8,7 @@ SOURCE="${1:-$PWD}"
 PORT="${2:-3000}"	# default to 3000 if none present
 HOST="${3:-localhost}"	# default to localhost
 
-echo $HOST:$PORT SOURCE:$SOURCE
+echo Starting pkgsite: $HOST:$PORT for $SOURCE
 
 # modify the vars in static/shared/header/header.css,
 # for instance, to change the style.  This will only
