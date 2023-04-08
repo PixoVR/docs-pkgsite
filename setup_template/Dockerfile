@@ -7,6 +7,10 @@ COPY	. .
 
 #RUN	pkgsite --version	#doesn't produce a version, but confirms installation
 
+RUN	git submodule set-branch --branch main documentation/docs-pkgsite && \
+	git submodule update --init documentation/docs-pkgsite
+
+# move the documentation away, so the documentation doesn't document itself
 RUN	mv /build/documentation /documentation/documentation
 
 #ENTRYPOINT ["/docker-entrypoint.sh"]
