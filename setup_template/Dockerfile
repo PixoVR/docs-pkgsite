@@ -22,6 +22,8 @@ RUN	cp /documentation/docs-pkgsite/nginx.conf /etc/nginx/nginx.conf
 # move the documentation away, so the documentation doesn't document itself
 RUN	mv /build/documentation /documentation/documentation
 
+RUN	chmod 777 /documentation/documentation/docs-pkgsite/start_services.sh
+
 # The second is port for pkgsite to listen on.  We want nginx to proxy to this port, so we don't need to expose it to outside.
 # The third parameter here is the host. An empty string allows for all hosts, but we want localhost because it's only talking to nginx.
 #CMD	["/documentation/documentation/docs-pkgsite/start_pkgsite.sh", "/build/", "3000",""]
