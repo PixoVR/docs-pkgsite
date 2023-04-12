@@ -1,6 +1,6 @@
 
-FROM	docs-docker-base
-#FROM	gcr.io/pixo-bootstrap/docs-docker-base:latest
+#FROM	docs-docker-base
+FROM	gcr.io/pixo-bootstrap/docs-docker-base:latest
 
 ARG	CACHEBREAKER=https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h
 
@@ -17,19 +17,23 @@ RUN	git submodule set-branch --branch main documentation/docs-pkgsite && \
 	cd documentation/docs-pkgsite && \
 	git pull origin main
 
-# set up nginx with the proxy setup
-RUN	cp /build/documentation/docs-pkgsite/nginx.conf /etc/nginx/nginx.conf
-#RUN	cp /documentation/docs-pkgsite/nginx.conf /etc/nginx/nginx.conf
+ENV	PKGSITE_SOURCE /build/
+ENV	PKGSITE_PORT 3001
+ENV	PKGSITE_HOST localhost
+
+RUN	chmod 777 /build/documentation/docs-pkgsite/start_services.sh && \
+	chmod 777 /build/documentation/docs-pkgsite/setup_nginx.sh
+
+RUN	/build/documentation/docs-pkgsite/setup_nginx.sh "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}"
 
 # move the documentation away, so the documentation doesn't document itself
 RUN	mv /build/documentation /documentation/documentation
-
-RUN	chmod 777 /documentation/documentation/docs-pkgsite/start_services.sh
 
 # The second is port for pkgsite to listen on.  We want nginx to proxy to this port, so we don't need to expose it to outside.
 # The third parameter here is the host. An empty string allows for all hosts, but we want localhost because it's only talking to nginx.
 #CMD	["/documentation/documentation/docs-pkgsite/start_pkgsite.sh", "/build/", "3000",""]
 
 # We want to proxy from nginx, so we have to start both services.
-CMD	["/documentation/documentation/docs-pkgsite/start_services.sh", "/build/", "3001","localhost"]
+#CMD	["/documentation/documentation/docs-pkgsite/start_services.sh", "$PKGSITE_SOURCE", "${PKGSITE_PORT}", "${PKGSITE_HOST}" ]
+CMD	"/documentation/documentation/docs-pkgsite/start_services.sh" "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}"
 
