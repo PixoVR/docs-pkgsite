@@ -7,13 +7,18 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
-eval "$(cat ./documentation/env.sh | grep "PROJECT_URL")"
+PKGSITE_SOURCE="$1"
+PKGSITE_PORT="${2:-3001}"
+PKGSITE_HOST="${3:-localhost}"
+
+# this variable is referenced in nginx.conf
+eval "$(cat .,/env.sh | grep "PROJECT_URL")"
 
 # Start nginx
 nginx -g
 
 # Start pkgsite
-./start_pkgsite.sh "$1" "$2" "$3" &
+./start_pkgsite.sh "$PKGSITE_SOURCE" "$PKGSITE_PORT" "$PKGSITE_HOST" &
 
 # Wait for any process to exit
 wait -n
