@@ -11,7 +11,7 @@ cd $DIR
 
 PKGSITE_SOURCE="$1"
 PKGSITE_PORT="${2:-3001}"
-PKGSITE_HOST="${3:-localhost}"
+PKGSITE_HOST="${3:-}"
 
 # this variable is referenced in nginx.conf
 eval "$(cat ../env.sh | grep "PROJECT_URL")"
