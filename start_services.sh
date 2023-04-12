@@ -16,7 +16,8 @@ PKGSITE_HOST="${3:-localhost}"
 # this variable is referenced in nginx.conf
 eval "$(cat ../env.sh | grep "PROJECT_URL")"
 
-echo "PROJECT URL: $PROJECT_URL"
+#echo "PROJECT URL: $PROJECT_URL"
+sed  -i "s/##PROJECT_URL/$PROJECT_URL/" /etc/nginx/nginx.conf
 
 # Start nginx
 nginx -g "daemon off;" &
