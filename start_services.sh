@@ -15,7 +15,7 @@ PKGSITE_HOST="${3:-localhost}"
 eval "$(cat ../env.sh | grep "PROJECT_URL")"
 
 # Start nginx
-nginx -g
+nginx -g "daemon off;" &
 
 # Start pkgsite
 ./start_pkgsite.sh "$PKGSITE_SOURCE" "$PKGSITE_PORT" "$PKGSITE_HOST" &
