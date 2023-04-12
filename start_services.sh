@@ -16,11 +16,13 @@ PKGSITE_HOST="${3:-localhost}"
 # this variable is referenced in nginx.conf
 eval "$(cat ../env.sh | grep "PROJECT_URL")"
 
-echo "PROJECT URL: $PROJECT_URL"
+#echo "PROJECT URL: $PROJECT_URL"
 sed  -i "s=##PROJECT_URL##=$PROJECT_URL=" /etc/nginx/nginx.conf
+sed  -i "s=##PKGSITE_HOST##=$PKGSITE_HOST=" /etc/nginx/nginx.conf
+sed  -i "s=##PKGSITE_PORT##=$PKGSITE_PORT=" /etc/nginx/nginx.conf
 
 # Start nginx
-nginx -g "daemon off;" &
+nginx -g 'daemon off;' &
 
 # Start pkgsite
 ./start_pkgsite.sh "$PKGSITE_SOURCE" "$PKGSITE_PORT" "$PKGSITE_HOST"
