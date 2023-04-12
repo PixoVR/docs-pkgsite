@@ -13,6 +13,8 @@ PKGSITE_HOST="${3:-}"
 # this variable is referenced in nginx.conf
 eval "$(cat ../env.sh | grep "PROJECT_URL")"
 
+echo Creating nginx.conf: $PROJECT_URL pkgconf:$PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
+
 # trim lead and tail spaces and slashes
 PROJECT_URL=`echo $PROJECT_URL | perl -pe "s/[\s\/]*(.*)[\/\s]*/\1/"`
 
