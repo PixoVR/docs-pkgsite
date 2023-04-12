@@ -7,10 +7,6 @@ COPY	. .
 
 #RUN	pkgsite --version	#doesn't produce a version, but confirms installation
 
-ARG	CACHEBREAKER=https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h
-
-ADD	$CACHEBREAKER skipcache
-
 RUN	git submodule set-branch --branch main documentation/docs-pkgsite && \
 	git submodule update --init documentation/docs-pkgsite
 
@@ -25,5 +21,5 @@ RUN	mv /build/documentation /documentation/documentation
 #CMD	["/documentation/documentation/docs-pkgsite/start_pkgsite.sh", "/build/", "3001",""]
 
 # We want to proxy from nginx, so we have to start both services.
-CMD	["/documentation/documentation/docs-pkgsite/start_services.sh", "/build/", "3001", ""]
+CMD	["/documentation/documentation/docs-pkgsite/start_services.sh", "/build/", "3001"]
 
