@@ -18,7 +18,7 @@ echo Starting pkgsite: $HOST:$PORT for $SOURCE
 
 cd $SOURCE
 pkgsite \
-	-http $HOST:$PORT/xxx \
+	-http $HOST:$PORT \
 	-static $DIR/static \
 	-dev \
 	-gorepo /usr/local/go/src \
