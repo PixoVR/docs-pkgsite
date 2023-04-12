@@ -18,7 +18,7 @@ eval "$(cat ../env.sh | grep "PROJECT_URL")"
 nginx -g "daemon off;" &
 
 # Start pkgsite
-./start_pkgsite.sh "$PKGSITE_SOURCE" "$PKGSITE_PORT" "$PKGSITE_HOST" &
+./start_pkgsite.sh "$PKGSITE_SOURCE" "$PKGSITE_PORT" "$PKGSITE_HOST"
 
 # Wait for any process to exit
 wait -n
