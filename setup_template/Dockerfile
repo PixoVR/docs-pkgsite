@@ -1,6 +1,6 @@
 
-#FROM	docs-docker-base
-FROM	gcr.io/pixo-bootstrap/docs-docker-base:latest
+FROM	docs-docker-base
+#FROM	gcr.io/pixo-bootstrap/docs-docker-base:latest
 
 ARG	CACHEBREAKER=https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h
 
@@ -20,10 +20,6 @@ RUN	git submodule set-branch --branch main documentation/docs-pkgsite && \
 # set up nginx with the proxy setup
 RUN	cp /build/documentation/docs-pkgsite/nginx.conf /etc/nginx/nginx.conf
 #RUN	cp /documentation/docs-pkgsite/nginx.conf /etc/nginx/nginx.conf
-
-# set up nginx with the proxy setup
-#RUN	cp /build/documentation/docs-pkgsite/nginx.conf /etc/nginx/nginx.conf
-RUN	cp /documentation/docs-pkgsite/nginx.conf /etc/nginx/nginx.conf
 
 # move the documentation away, so the documentation doesn't document itself
 RUN	mv /build/documentation /documentation/documentation
