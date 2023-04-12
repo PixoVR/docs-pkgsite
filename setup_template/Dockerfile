@@ -1,6 +1,6 @@
 
-FROM	docs-docker-base
-#FROM	gcr.io/pixo-bootstrap/docs-docker-base:latest
+#FROM	docs-docker-base
+FROM	gcr.io/pixo-bootstrap/docs-docker-base:latest
 
 ARG	CACHEBREAKER=https://www.random.org/cgi-bin/randbyte?nbytes=10&format=h
 
@@ -18,6 +18,10 @@ RUN	git submodule set-branch --branch main documentation/docs-pkgsite && \
 	git pull origin main
 
 # set up nginx with the proxy setup
+RUN	cp /build/documentation/docs-pkgsite/nginx.conf /etc/nginx/nginx.conf
+#RUN	cp /documentation/docs-pkgsite/nginx.conf /etc/nginx/nginx.conf
+
+# set up nginx with the proxy setup
 #RUN	cp /build/documentation/docs-pkgsite/nginx.conf /etc/nginx/nginx.conf
 RUN	cp /documentation/docs-pkgsite/nginx.conf /etc/nginx/nginx.conf
 
@@ -31,5 +35,5 @@ RUN	chmod 777 /documentation/documentation/docs-pkgsite/start_services.sh
 #CMD	["/documentation/documentation/docs-pkgsite/start_pkgsite.sh", "/build/", "3000",""]
 
 # We want to proxy from nginx, so we have to start both services.
-CMD	["/documentation/documentation/docs-pkgsite/start_services.sh", "/build/", "3001"]
+CMD	["/documentation/documentation/docs-pkgsite/start_services.sh", "/build/", "3001","localhost"]
 
