@@ -13,7 +13,9 @@ COPY	. .
 ADD	$CACHEBREAKER skipcache
 
 RUN	git submodule set-branch --branch main documentation/docs-pkgsite && \
-	git submodule update --init documentation/docs-pkgsite
+	git submodule update --init documentation/docs-pkgsite && \
+	cd documentation/docs-pkgsite && \
+	git pull origin main
 
 # set up nginx with the proxy setup
 #RUN	cp /build/documentation/docs-pkgsite/nginx.conf /etc/nginx/nginx.conf
