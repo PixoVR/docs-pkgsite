@@ -12,7 +12,7 @@ PKGSITE_PORT="${2:-3001}"
 PKGSITE_HOST="${3:-localhost}"
 
 # this variable is referenced in nginx.conf
-eval "$(cat .,/env.sh | grep "PROJECT_URL")"
+eval "$(cat ../env.sh | grep "PROJECT_URL")"
 
 # Start nginx
 nginx -g "daemon off;" &
