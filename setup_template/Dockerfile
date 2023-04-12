@@ -10,10 +10,10 @@ COPY	. .
 
 #RUN	pkgsite --version	#doesn't produce a version, but confirms installation
 
+ADD	$CACHEBREAKER skipcache
+
 RUN	git submodule set-branch --branch main documentation/docs-pkgsite && \
 	git submodule update --init documentation/docs-pkgsite
-
-ADD	$CACHEBREAKER skipcache
 
 # set up nginx with the proxy setup
 RUN	cp /build/documentation/docs-pkgsite/nginx.conf /etc/nginx/nginx.conf
