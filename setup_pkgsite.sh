@@ -7,12 +7,18 @@ cd $DIR
 set -e
 
 # get pkgsite
-git clone --recursive https://github.com/golang/pkgsite.git
+#git clone --recursive https://github.com/golang/pkgsite.git
 
-# setup pkgsite and cosmetics
-cd pkgsite
+# setup pkgsite
+#cd pkgsite
+#go install ./cmd/pkgsite
+
+go install golang.org/x/pkgsite/cmd/pkgsite@master
+
+# setup style
 #./all.bash build_static #build static site, with cosmetic changes
-go install ./cmd/pkgsite
+#mv /documentation/docs-pkgsite/
+#cp -r xxxxx
 
 # prep for startup later
 chmod 755 ./*
