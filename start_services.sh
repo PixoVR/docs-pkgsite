@@ -21,7 +21,7 @@ nginx -g 'daemon off;' &
 ./start_pkgsite.sh "$PKGSITE_SOURCE" "$PKGSITE_PORT" "$PKGSITE_HOST" &
 
 # Curl a package that has to be fetched remotely
-sleep 30
+sleep 60
 echo "Curl: " $PKGSITE_HOST:$PKGSITE_PORT/builtin
 curl $PKGSITE_HOST:$PKGSITE_PORT/builtin
 
