@@ -21,7 +21,7 @@ nginx -g 'daemon off;' &
 ./start_pkgsite.sh "$PKGSITE_SOURCE" "$PKGSITE_PORT" "$PKGSITE_HOST" &
 
 # Curl a package that has to be fetched remotely
-sleep 
+sleep 10
 curl localhost:3000/builtin
 
 # Wait for any process to exit
