@@ -12,7 +12,7 @@ cd pkgsite
 #./all.bash build_static #build static site, with cosmetic changes
 go install ./cmd/pkgsite
 
-#echo "pkgsite version: `pkgsite -v`"	# doesn't really exist
+#echo "pkgsite version: `pkgsite -v`"	# version flag doesn't exist
 
 # now call:
 # ./start_pkgsite.sh path/to/go/library

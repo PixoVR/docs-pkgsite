@@ -21,11 +21,11 @@ nginx -g 'daemon off;' &
 ./start_pkgsite.sh "$PKGSITE_SOURCE" "$PKGSITE_PORT" "$PKGSITE_HOST" &
 
 # Curl a package that has to be fetched remotely
-sleep 120
-echo "Curl: " $PKGSITE_HOST:$PKGSITE_PORT/builtin
-(curl $PKGSITE_HOST:$PKGSITE_PORT/builtin > /dev/null) && \
-	echo "completed pull from /builtin" || \
-	echo "failed to pull /builtin"
+#sleep 120
+#echo "Curl: " $PKGSITE_HOST:$PKGSITE_PORT/builtin
+#(curl $PKGSITE_HOST:$PKGSITE_PORT/builtin > /dev/null) && \
+#	echo "completed pull from /builtin" || \
+#	echo "failed to pull /builtin"
 
 # Wait for any process to exit
 wait -n
