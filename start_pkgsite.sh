@@ -17,7 +17,9 @@ echo "gorepo: $GOROOT/src"
 # for instance, to change the style.  This will only
 # work with -dev flag below.
 
-go env
+#go env
+GOPROXY=`go env goproxy`
+env
 
 cd $SOURCE
 pkgsite \
