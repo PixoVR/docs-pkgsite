@@ -22,5 +22,5 @@ pkgsite \
 	-http $HOST:$PORT \
 	-static $DIR/static \
 	-dev \
-	-gorepo $GOROOT/src \
+	-gorepo $GOROOT \
 	"$SOURCE"
