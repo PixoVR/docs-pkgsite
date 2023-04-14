@@ -42,6 +42,12 @@ RUN	mv /build/documentation /documentation/documentation
 ENV	GOCACHE /tmp/go_cache
 ENV	GOPATH /tmp/go
 
+# run once for a minute in readwrite mode to poulate caches
+RUN	cd /documentation/documentation/docs-pkgsite && \
+	timeout 60 "./start_services.sh" "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}" || \
+	curl $PKGSITE_HOST:$PGKSITE_PORT/builtin > /dev/null ||
+	echo "failed to pull /builtin"
+
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
 #CMD	["/documentation/documentation/docs-pkgsite/start_services.sh", "$PKGSITE_SOURCE", "${PKGSITE_PORT}", "${PKGSITE_HOST}" ]
 CMD	"/documentation/documentation/docs-pkgsite/start_services.sh" "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}"

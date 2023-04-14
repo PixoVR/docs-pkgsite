@@ -24,7 +24,7 @@ nginx -g 'daemon off;' &
 sleep 120
 echo "Curl: " $PKGSITE_HOST:$PKGSITE_PORT/builtin
 (curl $PKGSITE_HOST:$PKGSITE_PORT/builtin > /dev/null) && \
-	echo "builtin pull complete!" || \
+	echo "completed pull from /builtin" || \
 	echo "failed to pull /builtin"
 
 # Wait for any process to exit
