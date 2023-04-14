@@ -11,7 +11,7 @@ cd $DIR
 
 PKGSITE_SOURCE="$1"
 PKGSITE_PORT="${2:-3001}"
-PKGSITE_HOST="${3:-}"
+PKGSITE_HOST="${3:-localhost}"
 
 # Start nginx
 echo "Starting nginx..."
@@ -22,7 +22,8 @@ nginx -g 'daemon off;' &
 
 # Curl a package that has to be fetched remotely
 sleep 10
-curl localhost:3000/builtin
+echo "Curl: " $PKGSITE_HOST:$PKGSITE_PORT/builtin
+curl $PKGSITE_HOST:$PKGSITE_PORT/builtin
 
 # Wait for any process to exit
 wait -n
