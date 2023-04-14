@@ -27,6 +27,7 @@ nginx -g 'daemon off;' &
 #	echo "completed pull from /builtin" || \
 #	echo "failed to pull /builtin"
 
+
 # Wait for any process to exit
 wait -n
   
