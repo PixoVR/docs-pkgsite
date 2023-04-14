@@ -39,8 +39,11 @@ RUN	mv /build/documentation /documentation/documentation
 #CMD	["/documentation/documentation/docs-pkgsite/start_pkgsite.sh", "/build/", "3000",""]
 
 #RUN	env
+ENV	GOROOT /tmp/go_root
+ENV	GOPATH /tmp/go_path
 ENV	GOCACHE /tmp/go_cache
-ENV	GOPATH /tmp/go
+
+RUN	echo "Go version: `go version`"
 
 # run once for a minute in readwrite mode to poulate caches
 RUN	cd /documentation/documentation/docs-pkgsite && \
