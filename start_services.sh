@@ -23,7 +23,8 @@ nginx -g 'daemon off;' &
 # Curl a package that has to be fetched remotely
 sleep 60
 echo "Curl: " $PKGSITE_HOST:$PKGSITE_PORT/builtin
-curl $PKGSITE_HOST:$PKGSITE_PORT/builtin
+curl $PKGSITE_HOST:$PKGSITE_PORT/builtin > /dev/null
+echo "builtin pull complete!"
 
 # Wait for any process to exit
 wait -n
