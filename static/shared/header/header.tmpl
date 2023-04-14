@@ -14,6 +14,7 @@
         </a>
         <div class="go-Header-rightContent">
           {{template "symbol_search_bar" .}}
+          {{template "symbol_toggle_theme" .}}
           <ul class="go-Header-menu">
             <li class="go-Header-menuItem">
               <a class="js-desktop-menu-hover" href="#" data-gtmc="nav link">
@@ -372,6 +373,19 @@
     <img class="go-Icon go-Icon--inverted" height="24" width="24"
         src="/static/shared/icon/search_gm_grey_24dp.svg" alt="">
 
+  </button>
+</div>
+{{end}}
+
+{{define "symbol_toggle_theme"}}
+<div class="go-Footer-listItem">
+  <button class="go-Button go-Button--text go-Footer-toggleTheme js-toggleTheme" aria-label="Toggle theme">
+    <img data-value="auto" class="go-Icon go-Icon--inverted" height="24" width="24" src="/static/shared/icon/brightness_6_gm_grey_24dp.svg" alt="System theme">
+    <img data-value="dark" class="go-Icon go-Icon--inverted" height="24" width="24" src="/static/shared/icon/brightness_2_gm_grey_24dp.svg" alt="Dark theme">
+    <img data-value="light" class="go-Icon go-Icon--inverted" height="24" width="24" src="/static/shared/icon/light_mode_gm_grey_24dp.svg" alt="Light theme">
+  </button>
+  <button class="go-Button go-Button--text go-Footer-keyboard js-openShortcuts" aria-label="Open shorcuts modal">
+    <img class="go-Icon go-Icon--inverted" height="24" width="24" src="/static/shared/icon/keyboard_grey_24dp.svg" alt="">
   </button>
 </div>
 {{end}}

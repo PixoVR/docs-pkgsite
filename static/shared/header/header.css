@@ -51,7 +51,9 @@
 }
 
 .go-Header {
-  background: #007d9c;
+  Xbackground: #007d9c;
+  something: else;
+  background: var(--color-background-inverted);
   border-bottom: none;
   box-shadow: 0 0.0625rem 0.125rem rgb(171 171 171 / 30%);
   top: 0;
