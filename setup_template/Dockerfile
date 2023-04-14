@@ -10,17 +10,23 @@ COPY	. .
 
 ADD	$CACHEBREAKER skipcache
 
-RUN	git submodule set-branch --branch main documentation/docs-pkgsite && \
-	git submodule update --init documentation/docs-pkgsite
+#RUN	git submodule set-branch --branch main documentation/docs-pkgsite && \
+#	git submodule update --init documentation/docs-pkgsite
+
+# this sets PROJECT_URL, among other things
+RUN	cat ./documentation/env.sh >> ~/.bashrc
 
 ENV	PKGSITE_SOURCE /build/
 ENV	PKGSITE_PORT 3001
 ENV	PKGSITE_HOST localhost
 
+#RUN	. ~/.bashrc 2>/dev/null && env
+
 RUN	chmod 777 /build/documentation/docs-pkgsite/start_services.sh && \
 	chmod 777 /build/documentation/docs-pkgsite/setup_nginx.sh
 
-RUN	/build/documentation/docs-pkgsite/setup_nginx.sh "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}"
+RUN	. ~/.bashrc 2>/dev/null && \
+	/build/documentation/docs-pkgsite/setup_nginx.sh "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}"
 
 # move the documentation away, so the documentation doesn't document itself
 RUN	mv /build/documentation /documentation/documentation
