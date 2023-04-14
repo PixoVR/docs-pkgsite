@@ -38,7 +38,7 @@ RUN	mv /build/documentation /documentation/documentation
 # The third parameter here is the host. An empty string allows for all hosts, but we want localhost because it's only talking to nginx.
 #CMD	["/documentation/documentation/docs-pkgsite/start_pkgsite.sh", "/build/", "3000",""]
 
-RUN	env
+#RUN	env
 #ENV	GOROOT /tmp/go_root
 #ENV	GOPATH /tmp/go_path
 #ENV	GOCACHE /tmp/go_cache
