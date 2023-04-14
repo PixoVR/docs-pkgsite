@@ -38,18 +38,18 @@ RUN	mv /build/documentation /documentation/documentation
 # The third parameter here is the host. An empty string allows for all hosts, but we want localhost because it's only talking to nginx.
 #CMD	["/documentation/documentation/docs-pkgsite/start_pkgsite.sh", "/build/", "3000",""]
 
-#RUN	env
-ENV	GOROOT /tmp/go_root
-ENV	GOPATH /tmp/go_path
-ENV	GOCACHE /tmp/go_cache
+RUN	env
+#ENV	GOROOT /tmp/go_root
+#ENV	GOPATH /tmp/go_path
+#ENV	GOCACHE /tmp/go_cache
 
 RUN	echo "Go version: `go version`"
 
 # run once for a minute in readwrite mode to poulate caches
-RUN	cd /documentation/documentation/docs-pkgsite && \
-	timeout 60 "./start_services.sh" "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}" || \
-	curl $PKGSITE_HOST:$PGKSITE_PORT/builtin > /dev/null ||
-	echo "failed to pull /builtin"
+#RUN	cd /documentation/documentation/docs-pkgsite && \
+#	timeout 60 ("./start_services.sh" "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}") || \
+#	curl $PKGSITE_HOST:$PGKSITE_PORT/builtin > /dev/null || \
+#	echo "failed to pull /builtin"
 
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
 #CMD	["/documentation/documentation/docs-pkgsite/start_services.sh", "$PKGSITE_SOURCE", "${PKGSITE_PORT}", "${PKGSITE_HOST}" ]
