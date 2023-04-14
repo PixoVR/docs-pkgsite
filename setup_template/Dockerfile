@@ -15,7 +15,7 @@ ADD	$CACHEBREAKER skipcache
 RUN	git submodule set-branch --branch main documentation/docs-pkgsite && \
 	git submodule update --init documentation/docs-pkgsite && \
 	cd documentation/docs-pkgsite && \
-	git pull origin main
+	git pull --rebase origin main
 
 ENV	PKGSITE_SOURCE /build/
 ENV	PKGSITE_PORT 3001
@@ -29,9 +29,18 @@ RUN	/build/documentation/docs-pkgsite/setup_nginx.sh "${PKGSITE_SOURCE}" "${PKGS
 # move the documentation away, so the documentation doesn't document itself
 RUN	mv /build/documentation /documentation/documentation
 
+# run once for a minute to poulate caches
+#RUN	cd /documentation/documentation/docs-pkgsite && \
+#	timeout 60 "./start_services.sh" "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}" || \
+#	true
+
 # The second is port for pkgsite to listen on.  We want nginx to proxy to this port, so we don't need to expose it to outside.
 # The third parameter here is the host. An empty string allows for all hosts, but we want localhost because it's only talking to nginx.
 #CMD	["/documentation/documentation/docs-pkgsite/start_pkgsite.sh", "/build/", "3000",""]
+
+#RUN	env
+ENV	GOCACHE /tmp/go_cache
+ENV	GOPATH /tmp/go
 
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
 #CMD	["/documentation/documentation/docs-pkgsite/start_services.sh", "$PKGSITE_SOURCE", "${PKGSITE_PORT}", "${PKGSITE_HOST}" ]
