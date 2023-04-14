@@ -18,7 +18,7 @@ echo "gorepo: $GOROOT/src"
 # work with -dev flag below.
 
 #go env
-export GOPROXY=`go env goproxy`
+export GOPROXY=`go env GOPROXY`
 env
 
 cd $SOURCE
