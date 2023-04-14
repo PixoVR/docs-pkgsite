@@ -11,6 +11,7 @@ HOST="${3:-}"		# default to empty
 SOURCE=`realpath $SOURCE`
 
 echo Starting pkgsite: $HOST:$PORT for $SOURCE
+echo "gorepo: $GOROOT/src"
 
 # modify the vars in static/shared/header/header.css,
 # for instance, to change the style.  This will only
