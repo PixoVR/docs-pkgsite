@@ -14,13 +14,13 @@ echo DIR: $DIR
 echo whoami: `whoami`
 source /root/.bashrc
 
-echo "-----"
+echo "--0--"
 env
-echo "-----"
+echo "--1--"
 which go
-echo "-----"
+echo "--2--"
 go env
-echo "-----"
+echo "--3--"
 
 # Start nginx
 echo "Starting nginx..."
