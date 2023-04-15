@@ -9,15 +9,12 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
-source /root/.bashrc
+#source /root/.bashrc
 
-#echo "--0--"
-#env
-#echo "--1--"
-#which go
-#echo "--2--"
-#go env
-#echo "--3--"
+# Move gopath stuff to a writable place
+GOPATH=/tmp/
+PATH=$GOPATH/bin:$PATH
+cp -rfv /go /tmp/
 
 # Start nginx
 echo "Starting Nginx ... "

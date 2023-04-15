@@ -1,19 +1,11 @@
 #!/bin/bash
 
-echo "BEFORE:"
-env
-source /root/.bashrc
-echo +_+_+_+_+_+
-echo "AFTER:"
-env
-echo +_+_+_+_+_+
 
 echo pkgsite: `which pkgsite`
 echo go: `which go`
 echo "============"
-env
-echo "============"
 ls -alR /tmp
+la -slR /go/bin
 echo "============"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
