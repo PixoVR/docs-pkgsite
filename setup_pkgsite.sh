@@ -15,7 +15,7 @@ go install ./cmd/pkgsite
 
 # should basically produce an error message
 echo pkgsite: `which pkgsite`
-pkgsite -help
+#pkgsite -help
 
 #go install golang.org/x/pkgsite/cmd/pkgsite@master
 
