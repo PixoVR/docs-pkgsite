@@ -6,10 +6,6 @@ set -e
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
-#PKGSITE_SOURCE="$1"
-#PKGSITE_PORT="${2:-3001}"
-#PKGSITE_HOST="${3:-}"
-
 # this variable is referenced in nginx.conf
 #eval "$(cat ../env.sh | grep "PROJECT_URL")"
 
