@@ -32,3 +32,4 @@ RUN	echo "Go version: `go version`"
 #CMD	["/documentation/documentation/docs-pkgsite/start_services.sh", "$PKGSITE_SOURCE", "${PKGSITE_PORT}", "${PKGSITE_HOST}" ]
 CMD	"/documentation/docs-pkgsite/start_services.sh" "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}"
 
+
