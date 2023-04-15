@@ -9,18 +9,15 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
-echo DIR: $DIR
-
-echo whoami: `whoami`
 source /root/.bashrc
 
-echo "--0--"
-env
-echo "--1--"
-which go
-echo "--2--"
-go env
-echo "--3--"
+#echo "--0--"
+#env
+#echo "--1--"
+#which go
+#echo "--2--"
+#go env
+#echo "--3--"
 
 # Start nginx
 echo "Starting Nginx ... "
