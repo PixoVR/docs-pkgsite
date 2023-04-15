@@ -17,8 +17,13 @@ cd $DIR
 echo "Starting nginx..."
 nginx -g 'daemon off;' &
 
+echo "-----"
 which go
+echo "-----"
 go env
+echo "-----"
+env
+echo "-----"
 
 # Start pkgsite
 ./start_pkgsite.sh "$PKGSITE_SOURCE" "$PKGSITE_PORT" "$PKGSITE_HOST" &
