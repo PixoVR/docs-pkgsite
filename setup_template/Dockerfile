@@ -8,7 +8,10 @@ WORKDIR	/build
 
 COPY	. .
 
-#ADD	$CACHEBREAKER skipcache
+ADD	$CACHEBREAKER skipcache
+
+#RUN	git submodule set-branch --branch main documentation/docs-pkgsite && \
+#	git submodule update --init documentation/docs-pkgsite
 
 # this sets PROJECT_URL, among other things
 RUN	cat ./documentation/env.sh >> ~/.bashrc && \
