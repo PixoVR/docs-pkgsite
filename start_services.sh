@@ -26,7 +26,6 @@ echo "--3--"
 echo "Starting Nginx ... "
 nginx -g 'daemon off;' &
 
-
 # Start pkgsite
 ./start_pkgsite.sh "$PKGSITE_SOURCE" "$PKGSITE_PORT" "$PKGSITE_HOST" &
 
