@@ -9,6 +9,8 @@ set -e
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
+source /root/.bashrc
+
 #PKGSITE_SOURCE="$1"
 #PKGSITE_PORT="${2:-3001}"
 #PKGSITE_HOST="${3:-localhost}"
@@ -18,11 +20,11 @@ echo "Starting nginx..."
 nginx -g 'daemon off;' &
 
 echo "-----"
+env
+echo "-----"
 which go
 echo "-----"
 go env
-echo "-----"
-env
 echo "-----"
 
 # Start pkgsite
