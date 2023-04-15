@@ -3,7 +3,7 @@
 # referenced from
 # https://docs.docker.com/config/containers/multi-service_container/
 
-set -e
+#set -e
 
 # change to directory of this script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
