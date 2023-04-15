@@ -14,7 +14,7 @@ ADD	$CACHEBREAKER skipcache
 #	git submodule update --init documentation/docs-pkgsite
 
 # this sets PROJECT_URL, among other things
-RUN	cat ./documentation/env.sh >> ~/.bashrc && \
+RUN	cat ./documentation/env.sh | grep -v git >> ~/.bashrc && \
 	echo "export HOME=/root" >> ~/.bashrc && \
 	chmod 777 /root && chmod 777 /root/.bashrc
 
@@ -30,6 +30,7 @@ RUN	mv /build/documentation /documentation/documentation
 
 RUN	echo Go version: `go version`
 
+ADD	$CACHEBREAKER skipcache
 
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
 CMD	"/documentation/docs-pkgsite/start_services.sh" "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}"
