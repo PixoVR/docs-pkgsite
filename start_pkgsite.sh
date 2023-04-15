@@ -27,7 +27,7 @@ echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 # work with -dev flag below.
 
 cd $SOURCE
-/tmp/go/bin/pkgsite \
+pkgsite \
 	-http $PKGSITE_HOST:$PKGSITE_PORT \
 	-static $DIR/static \
 	`#-cache` \
