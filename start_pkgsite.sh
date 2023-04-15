@@ -6,6 +6,8 @@ echo pkgsite: `which pkgsite`
 echo "============"
 env
 echo "============"
+ls -al /tmp/go/bin
+echo "============"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
@@ -18,7 +20,7 @@ echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 # work with -dev flag below.
 
 cd $SOURCE
-pkgsite \
+/tmp/go/bin/pkgsite \
 	-http $PKGSITE_HOST:$PKGSITE_PORT \
 	-static $DIR/static \
 	`#-cache` \
