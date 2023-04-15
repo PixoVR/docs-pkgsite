@@ -3,6 +3,7 @@
 source /root/.bashrc
 
 echo pkgsite: `which pkgsite`
+echo go: `which go`
 echo "============"
 env
 echo "============"
