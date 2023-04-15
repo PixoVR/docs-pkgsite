@@ -1,17 +1,10 @@
 #!/bin/bash
 
-
-echo pkgsite: `which pkgsite`
-echo go: `which go`
-echo "============"
-ls -alR /tmp
-la -slR /go/bin
-echo "============"
-
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
 echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
+echo pkgsite: `which pkgsite`
 
 # modify the vars in static/shared/header/header.css,
 # for instance, to change the style.  This will only
