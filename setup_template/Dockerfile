@@ -12,7 +12,8 @@ COPY	. .
 
 # this sets PROJECT_URL, among other things
 RUN	cat ./documentation/env.sh >> ~/.bashrc && \
-	echo "export HOME=/root" >> ~/.bashrc
+	echo "export HOME=/root" >> ~/.bashrc && \
+	chmod 777 /root && chmod 777 /root/.bashrc
 
 ENV	PKGSITE_SOURCE /build/
 ENV	PKGSITE_PORT 3001
@@ -24,7 +25,7 @@ RUN	. ~/.bashrc 2>/dev/null && \
 # move the documentation away, so the documentation doesn't document itself
 RUN	mv /build/documentation /documentation/documentation
 
-RUN	echo "Go version: `go version`"
+#RUN	echo "Go version: `go version`"
 
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
 CMD	"/documentation/docs-pkgsite/start_services.sh" "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}"
