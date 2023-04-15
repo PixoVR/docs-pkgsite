@@ -6,8 +6,10 @@ set -e
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
-# this variable is referenced in nginx.conf
-#eval "$(cat ../env.sh | grep "PROJECT_URL")"
+if [[ -z "${PROJECT_URL}" ]]; then
+	echo "PROJECT_URL must be set for setup_nginx.sh"
+	exit 1
+fi
 
 echo Creating nginx.conf: $PROJECT_URL pkgconf: http://$PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 

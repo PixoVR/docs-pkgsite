@@ -5,13 +5,16 @@
 
 #set -e
 
-# change to directory of this script
+# change to the directory of this script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
-#source /root/.bashrc
-
 # Move gopath stuff to a writable place
+# this has to happen in the actual instance running,
+# because /tmp is ephemeral and writable, but empty
+# when the instance is created.  We need a writable
+# space on $GOPATH for pkgsite to dynamically download
+# documentation packages as needed. 
 GOPATH=/tmp/
 PATH=$GOPATH/bin:$PATH
 cp -rfv /go /tmp/

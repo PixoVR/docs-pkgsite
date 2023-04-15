@@ -13,10 +13,10 @@ git clone --recursive https://github.com/golang/pkgsite.git
 cd pkgsite
 go install ./cmd/pkgsite
 
+#go install golang.org/x/pkgsite/cmd/pkgsite@master
+
 echo pkgsite: `which pkgsite`
 #pkgsite -help	# should basically produce an error message
-
-#go install golang.org/x/pkgsite/cmd/pkgsite@master
 
 # setup style
 #./all.bash build_static #build static site, with cosmetic changes
@@ -24,5 +24,4 @@ echo pkgsite: `which pkgsite`
 #cp -r xxxxx
 
 # prep for startup later
-cd $DIR
-chmod 755 ./*
+chmod 755 $DIR/*.sh
