@@ -17,12 +17,6 @@ echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 # for instance, to change the style.  This will only
 # work with -dev flag below.
 
-#export GOPROXY=`go env GOPROXY`
-export GOPROXY=https://proxy.golang.org
-
-#go env
-#env
-
 cd $SOURCE
 pkgsite \
 	-http $PKGSITE_HOST:$PKGSITE_PORT \
