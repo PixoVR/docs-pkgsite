@@ -1,10 +1,14 @@
 #!/bin/bash
 
+# exit on errors
+set -e
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
-# exit on errors
-set -e
+# could install this way, but we want access to
+# the static folder to change the style.
+#go install golang.org/x/pkgsite/cmd/pkgsite@master
 
 # get pkgsite
 git clone --recursive https://github.com/golang/pkgsite.git
@@ -12,8 +16,6 @@ git clone --recursive https://github.com/golang/pkgsite.git
 # install pkgsite
 cd pkgsite
 go install ./cmd/pkgsite
-
-#go install golang.org/x/pkgsite/cmd/pkgsite@master
 
 echo pkgsite: `which pkgsite`
 #pkgsite -help	# should basically produce an error message
