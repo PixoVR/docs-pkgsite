@@ -8,7 +8,7 @@ WORKDIR	/build
 
 COPY	. .
 
-ADD	$CACHEBREAKER skipcache
+#ADD	$CACHEBREAKER skipcache
 
 #RUN	git submodule set-branch --branch main documentation/docs-pkgsite && \
 #	git submodule update --init documentation/docs-pkgsite
@@ -22,8 +22,8 @@ ENV	PKGSITE_HOST localhost
 
 #RUN	. ~/.bashrc 2>/dev/null && env
 
-RUN	chmod 777 /build/documentation/docs-pkgsite/start_services.sh && \
-	chmod 777 /build/documentation/docs-pkgsite/setup_nginx.sh
+#RUN	chmod 777 /build/documentation/docs-pkgsite/start_services.sh && \
+#	chmod 777 /build/documentation/docs-pkgsite/setup_nginx.sh
 
 RUN	. ~/.bashrc 2>/dev/null && \
 	/build/documentation/docs-pkgsite/setup_nginx.sh "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}"

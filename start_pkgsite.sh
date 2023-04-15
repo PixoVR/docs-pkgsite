@@ -11,15 +11,15 @@ cd $DIR
 #SOURCE=`realpath $SOURCE`
 
 echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
-echo "gorepo: $GOROOT/src"
+#echo "gorepo: $GOROOT/src"
 
 # modify the vars in static/shared/header/header.css,
 # for instance, to change the style.  This will only
 # work with -dev flag below.
 
-#go env
 export GOPROXY=`go env GOPROXY`
-env
+#go env
+#env
 
 cd $SOURCE
 pkgsite \
