@@ -24,7 +24,7 @@ echo "Starting Nginx ... "
 nginx -g 'daemon off;' &
 
 # Start pkgsite
-./start_pkgsite.sh "$PKGSITE_SOURCE" "$PKGSITE_PORT" "$PKGSITE_HOST" &
+./start_pkgsite.sh &
 
 # Wait for any process to exit
 wait -n

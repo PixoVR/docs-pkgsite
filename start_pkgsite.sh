@@ -1,5 +1,9 @@
 #!/bin/bash
 
+source /root/.bashrc
+
+echo pkgsite: `which pkgsite`
+
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
