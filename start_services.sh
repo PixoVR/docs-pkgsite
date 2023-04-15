@@ -23,7 +23,7 @@ go env
 echo "--3--"
 
 # Start nginx
-echo "Starting nginx..."
+echo "Starting Nginx ... "
 nginx -g 'daemon off;' &
 
 
