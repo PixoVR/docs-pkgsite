@@ -9,6 +9,7 @@ set -e
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
+echo whoami: `whoami`
 source /root/.bashrc
 
 echo "-----"
