@@ -3,6 +3,9 @@
 source /root/.bashrc
 
 echo pkgsite: `which pkgsite`
+echo "============"
+env
+echo "============"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
