@@ -28,5 +28,5 @@ pkgsite \
 	`#-cache` \
 	-proxy \
 	-dev \
-	-gorepo $GOROOT \
+	`#-gorepo $GOROOT` \
 	"$PKGSITE_SOURCE"
