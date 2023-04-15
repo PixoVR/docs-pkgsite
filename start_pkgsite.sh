@@ -19,8 +19,10 @@ echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 
 #export GOPROXY=`go env GOPROXY`
 export GOPROXY=https://proxy.golang.org
+echo "======"
 go env
-#env
+echo "======"
+env
 
 cd $SOURCE
 pkgsite \
