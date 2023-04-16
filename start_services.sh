@@ -26,6 +26,7 @@ source /env2.sh
 # documentation packages as needed. 
 cp -r /go $GOPATH
 cp -r /root/.cache/go-build $GOCACHE
+cp -r /.config /tmp/.config
 #chmod -R 777 /tmp/go
 
 # Start nginx
