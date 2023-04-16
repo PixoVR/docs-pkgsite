@@ -23,8 +23,8 @@ source /env2.sh
 echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 ./start_pkgsite.sh &
 
-# pull an external library during build, so it's cached
-sleep 60
+# Wait a moment for pkgsite to listen
+sleep 90
 
 # Start nginx
 echo Starting nginx for $PROJECT_URL
@@ -33,6 +33,7 @@ nginx -g 'daemon off;' &
 # Wait a moment for nginx
 sleep 5
 
+# pull an external library during build, so it's cached
 echo "Pulling $PROJECT_URL/builtin"
 	#curl "http://localhost:3000/$PROJECT_URL/" 2>&1 > /dev/null
 curl "http://localhost:3000/$PROJECT_URL/builtin#string" &>/dev/null
