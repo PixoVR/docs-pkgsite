@@ -24,7 +24,7 @@ ENV	GOPROXY=https://proxy.golang.org,direct
 # can't do this here, because /tmp doesn't ephemerally exist yet
 #RUN	mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 
-ENV	PATH=$GOPATH/bin:$PATH
+#ENV	PATH=$GOPATH/bin:$PATH
 
 # specifics for serving docs to nginx proxy.
 ENV	PKGSITE_SOURCE=/build/
@@ -46,6 +46,8 @@ ENV	GOPATH=/tmp/go
 ENV	GOCACHE=/tmp/gocache
 ENV	GOENV=/tmp/.config/go/env
 
+ENV	PATH=$GOPATH/bin:$PATH
+
 # move the documentation away, so the documentation doesn't document itself
 RUN	mv /build/documentation /base/documentation
 
@@ -55,6 +57,7 @@ RUN	mv /build/documentation /base/documentation
 
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
 CMD	"/base/docs-pkgsite/start_services.sh"
+
 
 
 
