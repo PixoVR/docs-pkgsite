@@ -21,6 +21,8 @@ echo "++++++"
 #echo "++++++"
 #mount
 #echo "++++++"
+ls -al /
+echo "@@@@@@"
 
 # set to empty string
 PKGSITE_HOST=
