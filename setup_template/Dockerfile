@@ -36,14 +36,15 @@ ENV	PKGSITE_HOST=localhost
 RUN	cat ./documentation/env.sh | grep -v git > /env2.sh
 
 RUN	. /env2.sh \
-	&& ./docs-pkgsite/setup_nginx.sh \
 	&& cd /base \
 	&& git clone https://github.com/PixoVR/docs-pkgsite.git \
-	&& ./docs-pkgsite/setup_pkgsite.sh
+	&& ./docs-pkgsite/setup_pkgsite.sh \
+	&& ./docs-pkgsite/setup_nginx.sh
 
 # the location when running
 ENV	GOPATH=/tmp/go
 ENV	GOCACHE=/tmp/gocache
+ENV	GOENV=/tmp/.config/go/env
 
 # move the documentation away, so the documentation doesn't document itself
 RUN	mv /build/documentation /base/documentation
@@ -54,27 +55,5 @@ RUN	mv /build/documentation /base/documentation
 
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
 CMD	"/base/docs-pkgsite/start_services.sh"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
