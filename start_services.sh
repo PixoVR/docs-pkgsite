@@ -15,6 +15,9 @@ source /env2.sh
 # make sure all these temp dirs exist, since that is our writable space
 mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 
+# use what's already cached!
+GOPROXY=file://$(go env GOMODCACHE)/cache/download
+
 # Move gopath stuff to a writable place
 # this has to happen in the actual instance running,
 # because /tmp is ephemeral and writable, but empty
@@ -31,6 +34,10 @@ nginx -g 'daemon off;' &
 echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 #./start_pkgsite.sh 2>&1 #&	# no fork...?
 ./start_pkgsite.sh &
+
+# pull an external library during build, so it's cached
+sleep 60;
+curl http://localhost:3000/$PROJECT_URL/builtin#string
 
 # Wait for any process to exit
 wait -n
