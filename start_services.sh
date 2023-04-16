@@ -36,12 +36,13 @@ nginx -g 'daemon off;' &
 # Start pkgsite
 echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 #./start_pkgsite.sh 2>&1 #&	# no fork...?
-./start_pkgsite.sh #&
+./start_pkgsite.sh &
 
 # pull an external library during build, so it's cached
-#sleep 60
+sleep 60
 #curl "http://localhost:3000/$PROJECT_URL/" 2>&1 > /dev/null
 #curl "http://localhost:3000/$PROJECT_URL/builtin#string" 2>&1 > /dev/null
+curl "http://localhost:3000/$PROJECT_URL/builtin#string"
 
 # Wait for any process to exit
 wait -n
