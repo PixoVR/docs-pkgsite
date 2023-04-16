@@ -32,7 +32,8 @@ pkgsite \
 	-http $PKGSITE_HOST:$PKGSITE_PORT \
 	-static $DIR/static \
 	-cache \
-	-proxy \
+	`#-proxy` \
 	`#-dev` \
 	`#-gorepo $GOROOT` \
 	"$PKGSITE_SOURCE"
+

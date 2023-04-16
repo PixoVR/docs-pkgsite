@@ -8,7 +8,7 @@ WORKDIR	/build
 
 COPY	. .
 
-ADD	$CACHEBREAKER skipcache
+#ADD	$CACHEBREAKER skipcache
 
 #RUN	go env
 
@@ -64,6 +64,8 @@ RUN	mv /build/documentation /base/documentation
 
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
 CMD	"/base/docs-pkgsite/start_services.sh"
+
+
 
 
 
