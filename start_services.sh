@@ -16,7 +16,7 @@ source /env2.sh
 mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 
 # use what's already cached!
-GOPROXY=file://$(go env GOMODCACHE)/cache/download
+#GOPROXY=file://$(go env GOMODCACHE)/cache/download
 
 # Move gopath stuff to a writable place
 # this has to happen in the actual instance running,
