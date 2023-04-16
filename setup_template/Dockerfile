@@ -14,8 +14,8 @@ COPY	. .
 # (we grep out bad lines here as well for env2.sh)
 RUN	cat ./documentation/env.sh | grep -v git > ./documentation/env2.sh
 
-ENV     GOCACHE=/tmp/gocache
-ENV     GOPROXY=https://proxy.golang.org
+#ENV     GOCACHE=/tmp/gocache
+#ENV     GOPROXY=https://proxy.golang.org
 
 ENV	PKGSITE_SOURCE=/build/
 ENV	PKGSITE_PORT=3001
