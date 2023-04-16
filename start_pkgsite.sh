@@ -8,9 +8,9 @@ cd $DIR
 
 # for style updates, check setup_pkgsite.sh
 
-echo "====="
-go env
-echo "====="
+#echo "====="
+#go env
+#echo "====="
 
 cd $SOURCE
 pkgsite \
