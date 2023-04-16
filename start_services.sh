@@ -5,15 +5,20 @@
 
 #set -e
 
+# make sure all these temp dirs exist, since that is our writable space
+mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
+
+# install pkgsite (to /tmp, because of envs)
+cd /documentation
+git clone https://github.com/PixoVR/docs-pkgsite.git
+/documentation/docs-pkgsite/setup_pkgsite.sh
+
 # change to the directory of this script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
 # get env set up
 source /env2.sh
-
-# make sure all these temp dirs exist, since that is our writable space
-mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 
 # use what's already cached!
 #GOPROXY=file://$(go env GOMODCACHE)/cache/download
@@ -24,8 +29,8 @@ mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 # when the instance is created.  We need a writable
 # space on $GOPATH for pkgsite to dynamically download
 # documentation packages as needed. 
-cp -rv /go /tmp/go
-chmod -R 777 /tmp/go
+#cp -rv /go /tmp/go
+#chmod -R 777 /tmp/go
 
 # Start nginx
 echo Starting nginx for $PROJECT_URL
