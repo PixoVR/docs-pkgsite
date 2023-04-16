@@ -6,7 +6,7 @@
 #set -e
 
 # make sure all these temp dirs exist, since that is our writable space
-mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
+#mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 
 # change to the directory of this script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"

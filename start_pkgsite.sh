@@ -4,15 +4,13 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
-#echo pkgsite: `which pkgsite`
-
 # for style updates, check setup_pkgsite.sh
 
 #echo "====="
 #env
-echo "====="
-go env
-echo "++++++"
+#echo "====="
+#go env
+#echo "++++++"
 #free
 #echo "++++++"
 #du -hs /*
@@ -21,12 +19,17 @@ echo "++++++"
 #echo "++++++"
 #mount
 #echo "++++++"
-ls -al /
-echo "@@@@@@"
-cat /proc/cpuinfo
-echo "@@@@@@"
+#ls -al /
+#echo "@@@@@@"
+#cat /proc/cpuinfo
+#echo "@@@@@@"
 
-# set to empty string
+if [[ -z "${PKGSITE_PORT}" ]]; then
+	echo "PKGSITE_PORT must be set for start_pkgsite.sh"
+	exit 1
+fi
+
+# set to empty string, which means listen to any request
 PKGSITE_HOST=
 
 cd $SOURCE
