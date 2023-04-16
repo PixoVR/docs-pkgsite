@@ -10,7 +10,7 @@ COPY	. .
 
 ADD	$CACHEBREAKER skipcache
 
-RUN	go env
+#RUN	go env
 
 # moving everything to a writable filesystem
 #ENV	GOPATH=/tmp/go
@@ -18,7 +18,7 @@ RUN	go env
 #ENV	GOENV=/tmp/.config/go/env
 #ENV	GOTMPDIR=/tmp/gotmpdir
 #ENV	GOMEMLIMIT=1000MiB
-#ENV	GOPROXY=https://proxy.golang.org,direct
+ENV	GOPROXY=https://proxy.golang.org,direct
 #ENV	GOPROXY=file://$(go env GOMODCACHE)/cache/download
 
 # can't do this here, because /tmp doesn't ephemerally exist yet
@@ -55,5 +55,6 @@ RUN	mv /build/documentation /base/documentation
 
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
 CMD	"/base/docs-pkgsite/start_services.sh"
+
 
 
