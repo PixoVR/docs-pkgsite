@@ -8,7 +8,7 @@
 # make sure all these temp dirs exist, since that is our writable space
 mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 
-go env -w GOPROXY=https://proxy.golang.org,file://$(go env GOMODCACHE)/cache/download,direct
+#go env -w GOPROXY=https://proxy.golang.org,file://$(go env GOMODCACHE)/cache/download,direct
 
 # change to the directory of this script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
