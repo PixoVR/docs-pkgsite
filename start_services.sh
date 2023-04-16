@@ -16,7 +16,7 @@ cd $DIR
 # space on $GOPATH for pkgsite to dynamically download
 # documentation packages as needed. 
 GOPATH=/tmp/go
-PATH=$GOPATH:$PATH
+PATH=$GOPATH/bin:$PATH
 cp -rfv /go /tmp/
 
 # Start nginx
