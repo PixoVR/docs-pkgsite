@@ -19,7 +19,7 @@ cd $DIR
 cp -r /go /tmp/ && chmod -R 777 /tmp/go
 
 # Start nginx
-echo "Starting Nginx ... "
+echo "Starting nginx for $PROJECT_URL ... "
 nginx -g 'daemon off;' &
 
 # Start pkgsite
