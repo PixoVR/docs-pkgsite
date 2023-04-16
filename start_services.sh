@@ -8,10 +8,6 @@
 # make sure all these temp dirs exist, since that is our writable space
 mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 
-# install pkgsite (to /tmp, because of envs)
-cd /documentation
-/documentation/docs-pkgsite/setup_pkgsite.sh
-
 # change to the directory of this script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
