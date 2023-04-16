@@ -17,7 +17,7 @@ cd $DIR
 # documentation packages as needed. 
 GOPATH=/tmp/go
 PATH=$GOPATH/bin:$PATH
-cp -rfv /go /tmp/
+cp -r /go /tmp/
 
 # Start nginx
 echo "Starting Nginx ... "
