@@ -16,6 +16,7 @@ ENV	GOCACHE=/tmp/gocache
 ENV	GOENV=/tmp/.config/go/env
 ENV	GOTMPDIR=/tmp/gotmpdir
 ENV	GOPROXY=https://proxy.golang.org,direct
+ENV	GOMEMLIMIT=4000MiB
 #ENV	GOPROXY=file://$(go env GOMODCACHE)/cache/download
 
 # can't do this here, because /tmp doesn't exist yet
@@ -43,10 +44,12 @@ RUN	mv /build/documentation /documentation/documentation
 #	|| true
 
 #ENV	GOPATH=/tmp/go
-#ENV     GOCACHE=/tmp/gocache
+#ENV	GOCACHE=/tmp/gocache
 
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
 CMD	"/documentation/docs-pkgsite/start_services.sh"
+
+
 
 
 
