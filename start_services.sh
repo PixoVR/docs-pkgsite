@@ -25,7 +25,7 @@ mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 # space on $GOPATH for pkgsite to dynamically download
 # documentation packages as needed. 
 cp -r /go /tmp/
-cp -r /root/.cache/* /tmp/gocache/
+#cp -r /root/.cache/* /tmp/gocache/
 chmod -R 777 /tmp/go
 
 # Start nginx
@@ -47,6 +47,8 @@ echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 
 # Wait for pkgsite to exit
 wait $!
+
+echo "Services exiting."
   
 # Exit with status of process that exited first
 exit $?
