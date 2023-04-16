@@ -25,7 +25,7 @@ GOPROXY=file://$(go env GOMODCACHE)/cache/download
 # space on $GOPATH for pkgsite to dynamically download
 # documentation packages as needed. 
 cp -r /go /tmp/
-cp -r /.cache/* /tmo/gocache/
+cp -r /root/.cache/* /tmp/gocache/
 chmod -R 777 /tmp/go
 
 # Start nginx
