@@ -52,7 +52,9 @@ wait -n
 # Wait for pkgsite to exit
 #wait $!
 
-echo "Services exiting."
+# if we get this far, it's because something has failed above
+# so therefore we return false
+echo "Services exiting." && false
   
 # Exit with status of process that exited first
 exit $?
