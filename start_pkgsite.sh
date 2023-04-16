@@ -8,19 +8,19 @@ cd $DIR
 
 # for style updates, check setup_pkgsite.sh
 
-echo "====="
-env
-echo "====="
-go env
-echo "++++++"
-free
-echo "++++++"
-du -hs /*
-echo "++++++"
-df -h
-echo "++++++"
-mount
-echo "++++++"
+#echo "====="
+#env
+#echo "====="
+#go env
+#echo "++++++"
+#free
+#echo "++++++"
+#du -hs /*
+#echo "++++++"
+#df -h
+#echo "++++++"
+#mount
+#echo "++++++"
 
 cd $SOURCE
 pkgsite \
