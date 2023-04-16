@@ -9,6 +9,12 @@ echo pkgsite: `which pkgsite`
 
 # for style updates, check setup_pkgsite.sh
 
+echo "====="
+env
+echo "====="
+go env
+echo "====="
+
 cd $SOURCE
 pkgsite \
 	-http $PKGSITE_HOST:$PKGSITE_PORT \
