@@ -12,6 +12,9 @@ cd $DIR
 # get env set up
 source /env2.sh
 
+# make sure all these temp dirs exist, since that is our writable space
+mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
+
 # Move gopath stuff to a writable place
 # this has to happen in the actual instance running,
 # because /tmp is ephemeral and writable, but empty
