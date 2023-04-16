@@ -16,12 +16,12 @@ ENV     GOCACHE=/tmp/gocache
 ENV	GOENV=/tmp/.config/go/env
 ENV	GOTMPDIR=/tmp/gotmpdir
 ENV	GOPROXY=https://proxy.golang.org,direct
+#ENV	GOPROXY=file://$(go env GOMODCACHE)/cache/download
 
-RUN	mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
+# can't do this here, because /tmp doesn't exist yet
+#RUN	mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 
 ENV	PATH=$GOPATH/bin:$PATH
-
-#ENV	GOPROXY=file://$(go env GOMODCACHE)/cache/download
 
 # specifics for serving docs to nginx proxy.
 ENV	PKGSITE_SOURCE=/build/

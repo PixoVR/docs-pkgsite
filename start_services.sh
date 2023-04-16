@@ -21,7 +21,6 @@ mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 # when the instance is created.  We need a writable
 # space on $GOPATH for pkgsite to dynamically download
 # documentation packages as needed. 
-
 cp -r /go /tmp/ && chmod -R 777 /tmp/go
 
 # Start nginx
@@ -30,7 +29,7 @@ nginx -g 'daemon off;' &
 
 # Start pkgsite
 echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
-./start_pkgsite.sh #&	# no fork...?
+./start_pkgsite.sh 2>&1 #&	# no fork...?
 
 # Wait for any process to exit
 wait -n
