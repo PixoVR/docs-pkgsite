@@ -22,16 +22,20 @@ ADD	$CACHEBREAKER skipcache
 #ENV	GOPROXY=file://$(go env GOMODCACHE)/cache/download
 #ENV	GOGC=50
 
+RUN	ln -s /tmp/goconfig /.config && \
+	mkdir -p /.config/go/ &&
+
+
 # can't do this here, because /tmp doesn't ephemerally exist yet
 #RUN	mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
+#RUN	go env -w GOPROXY=https://proxy.golang.org,file://$(go env GOMODCACHE)/cache/download,direct
 
 #ENV	PATH=$GOPATH/bin:$PATH
 
 # specifics for serving docs to nginx proxy.
 ENV	PKGSITE_SOURCE=/build/
 ENV	PKGSITE_PORT=3001
-#ENV	PKGSITE_HOST=localhost
-ENV	PKGSITE_HOST=
+ENV	PKGSITE_HOST=localhost
 
 # this sets PROJECT_URL, among other things.
 # (we grep out bad lines here as well for env2.sh)
@@ -59,6 +63,7 @@ RUN	timeout 180 /base/docs-pkgsite/start_services.sh \
 
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
 CMD	"/base/docs-pkgsite/start_services.sh"
+
 
 
 

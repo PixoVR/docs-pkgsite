@@ -22,6 +22,9 @@ echo "++++++"
 #mount
 #echo "++++++"
 
+# set to empty string
+PKGSITE_HOST=
+
 cd $SOURCE
 pkgsite \
 	-http $PKGSITE_HOST:$PKGSITE_PORT \
