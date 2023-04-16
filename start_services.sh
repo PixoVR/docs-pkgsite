@@ -25,7 +25,7 @@ source /env2.sh
 # space on $GOPATH for pkgsite to dynamically download
 # documentation packages as needed. 
 cp -rv /go $GOPATH
-cp -rv /xxx $GOCACHE
+cp -rv /root/.cache/go-build $GOCACHE
 #chmod -R 777 /tmp/go
 
 # Start nginx
