@@ -29,7 +29,8 @@ nginx -g 'daemon off;' &
 
 # Start pkgsite
 echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
-./start_pkgsite.sh 2>&1 #&	# no fork...?
+#./start_pkgsite.sh 2>&1 #&	# no fork...?
+./start_pkgsite.sh &
 
 # Wait for any process to exit
 wait -n
