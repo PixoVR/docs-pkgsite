@@ -41,7 +41,7 @@ echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 ./start_pkgsite.sh &
 
 # pull an external library during build, so it's cached
-#sleep 120
+sleep 120
 echo "Pulling $PROJECT_URL/builtin"
 	#curl "http://localhost:3000/$PROJECT_URL/" 2>&1 > /dev/null
 curl "http://localhost:3000/$PROJECT_URL/builtin#string" &>/dev/null
