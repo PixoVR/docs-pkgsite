@@ -24,7 +24,9 @@ GOPROXY=file://$(go env GOMODCACHE)/cache/download
 # when the instance is created.  We need a writable
 # space on $GOPATH for pkgsite to dynamically download
 # documentation packages as needed. 
-#cp -r /go /tmp/ && chmod -R 777 /tmp/go
+cp -r /go /tmp/
+cp -r /.cache/* /tmo/gocache/
+chmod -R 777 /tmp/go
 
 # Start nginx
 echo Starting nginx for $PROJECT_URL
@@ -36,8 +38,8 @@ echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 ./start_pkgsite.sh &
 
 # pull an external library during build, so it's cached
-sleep 60;
-curl http://localhost:3000/$PROJECT_URL/builtin#string
+sleep 60
+curl "http://localhost:3000/$PROJECT_URL/builtin#string"
 
 # Wait for any process to exit
 wait -n
