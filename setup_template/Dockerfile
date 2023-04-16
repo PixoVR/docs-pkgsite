@@ -8,8 +8,6 @@ WORKDIR	/build
 
 COPY	. .
 
-#RUN	go env
-
 # specifics for serving docs to nginx proxy.
 ENV	PKGSITE_SOURCE=/build/
 ENV	PKGSITE_PORT=3001
