@@ -10,14 +10,14 @@ cd $DIR
 
 echo "====="
 go env
-#echo "++++++"
-#free
-#echo "++++++"
-#du -hs /*
-#echo "++++++"
-#df -h
-#echo "++++++"
-#mount
+echo "++++++"
+free
+echo "++++++"
+du -hs /*
+echo "++++++"
+df -h
+echo "++++++"
+mount
 echo "++++++"
 
 cd $SOURCE

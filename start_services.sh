@@ -24,7 +24,7 @@ mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 # when the instance is created.  We need a writable
 # space on $GOPATH for pkgsite to dynamically download
 # documentation packages as needed. 
-#cp -r /go /tmp/
+cp -rv /go /tmp/go
 chmod -R 777 /tmp/go
 
 # Start nginx
