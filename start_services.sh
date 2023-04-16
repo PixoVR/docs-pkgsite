@@ -10,7 +10,6 @@ mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 
 # install pkgsite (to /tmp, because of envs)
 cd /documentation
-git clone https://github.com/PixoVR/docs-pkgsite.git
 /documentation/docs-pkgsite/setup_pkgsite.sh
 
 # change to the directory of this script
