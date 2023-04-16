@@ -43,7 +43,10 @@ echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 #curl "http://localhost:3000/$PROJECT_URL/builtin#string" 2>&1 > /dev/null
 
 # Wait for any process to exit
-wait -n
+#wait -n
+
+# Wait for pkgsite to exit
+wait $!
   
 # Exit with status of process that exited first
 exit $?
