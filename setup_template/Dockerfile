@@ -10,18 +10,29 @@ COPY	. .
 
 #ADD	$CACHEBREAKER skipcache
 
-# this sets PROJECT_URL, among other things.
-# (we grep out bad lines here as well for env2.sh)
-RUN	cat ./documentation/env.sh | grep -v git > ./documentation/env2.sh
+# already set, but ok to set again
+ENV	GOPATH=/tmp/go
+ENV     GOCACHE=/tmp/gocache
+ENV	GOENV=/tmp/.config/go/env
+ENV	GOTMPDIR=/tmp/gotmpdir
+ENV	GOPROXY=https://proxy.golang.org,direct
 
-#ENV     GOCACHE=/tmp/gocache
-#ENV     GOPROXY=https://proxy.golang.org
+RUN	mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 
+ENV	PATH=$GOPATH/bin:$PATH
+
+#ENV	GOPROXY=file://$(go env GOMODCACHE)/cache/download
+
+# specifics for serving docs to nginx proxy.
 ENV	PKGSITE_SOURCE=/build/
 ENV	PKGSITE_PORT=3001
 ENV	PKGSITE_HOST=localhost
 
-RUN	. ./documentation/env2.sh && \
+# this sets PROJECT_URL, among other things.
+# (we grep out bad lines here as well for env2.sh)
+RUN	cat ./documentation/env.sh | grep -v git > /env2.sh
+
+RUN	. /env2.sh && \
 	/documentation/docs-pkgsite/setup_nginx.sh
 
 # move the documentation away, so the documentation doesn't document itself
