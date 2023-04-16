@@ -10,9 +10,9 @@ cd $DIR
 
 #echo "====="
 #env
-#echo "====="
-#go env
-#echo "++++++"
+echo "====="
+go env
+echo "++++++"
 #free
 #echo "++++++"
 #du -hs /*
@@ -26,7 +26,7 @@ cd $SOURCE
 pkgsite \
 	-http $PKGSITE_HOST:$PKGSITE_PORT \
 	-static $DIR/static \
-	`#-cache` \
+	-cache \
 	-proxy \
 	`#-dev` \
 	`#-gorepo $GOROOT` \
