@@ -8,30 +8,7 @@ WORKDIR	/build
 
 COPY	. .
 
-#ADD	$CACHEBREAKER skipcache
-
 #RUN	go env
-
-# moving everything to a writable filesystem
-#ENV	GOPATH=/tmp/go
-#ENV	GOCACHE=/tmp/gocache
-#ENV	GOENV=/tmp/.config/go/env
-#ENV	GOTMPDIR=/tmp/gotmpdir
-#ENV	GOMEMLIMIT=1000MiB
-#ENV	GOPROXY=https://proxy.golang.org,direct
-#ENV	GOPROXY=file://$(go env GOMODCACHE)/cache/download
-#ENV	GOGC=50
-
-RUN	rm -rfv /.config \
-	&& mkdir /tmp/goconfig \
-	&& ln -s /tmp/goconfig /.config \
-	&& mkdir -p /.config/go/
-
-# can't do this here, because /tmp doesn't ephemerally exist yet
-#RUN	mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
-#RUN	go env -w GOPROXY=https://proxy.golang.org,file://$(go env GOMODCACHE)/cache/download,direct
-
-#ENV	PATH=$GOPATH/bin:$PATH
 
 # specifics for serving docs to nginx proxy.
 ENV	PKGSITE_SOURCE=/build/
@@ -43,17 +20,7 @@ ENV	PKGSITE_HOST=localhost
 RUN	cat ./documentation/env.sh | grep -v git > /env2.sh
 
 RUN	. /env2.sh \
-	&& cd /base \
-	&& git clone https://github.com/PixoVR/docs-pkgsite.git \
-	&& ./docs-pkgsite/setup_pkgsite.sh \
-	&& ./docs-pkgsite/setup_nginx.sh
-
-# the location when running
-#ENV	GOPATH=/tmp/go:$GOPATH
-#ENV	GOCACHE=/tmp/gocache
-#ENV	GOENV=/tmp/.config/go/env
-
-#ENV	PATH=/tmp/go/bin:$PATH
+	&& /base/docs-pkgsite/setup_nginx.sh
 
 # move the documentation away, so the documentation doesn't document itself
 RUN	mv /build/documentation /base/documentation
