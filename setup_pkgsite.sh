@@ -6,7 +6,7 @@ set -e
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
-mkdir -p $GOTMPDIR
+#mkdir -p $GOTMPDIR
 
 # could install this way, but we want access to
 # the static folder to change the style.
