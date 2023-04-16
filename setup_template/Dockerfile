@@ -60,5 +60,3 @@ RUN	timeout 120 /base/docs-pkgsite/start_services.sh \
 CMD	"/base/docs-pkgsite/start_services.sh"
 
 
-
-
