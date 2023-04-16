@@ -11,9 +11,9 @@ COPY	. .
 #ADD	$CACHEBREAKER skipcache
 
 # already set, but ok to set again
-ENV	GOPATH=/tmp/go
+#ENV	GOPATH=/tmp/go
 ENV     GOCACHE=/tmp/gocache
-ENV	GOENV=/tmp/.config/go/env
+#ENV	GOENV=/tmp/.config/go/env
 ENV	GOTMPDIR=/tmp/gotmpdir
 ENV	GOPROXY=https://proxy.golang.org,direct
 #ENV	GOPROXY=file://$(go env GOMODCACHE)/cache/download
@@ -38,6 +38,11 @@ RUN	. /env2.sh && \
 # move the documentation away, so the documentation doesn't document itself
 RUN	mv /build/documentation /documentation/documentation
 
+# run for a moment to let the cache populate
+RUN	timeout 120 /documentation/docs-pkgsite/start_services.sh \
+	|| true
+
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
-CMD	"/documentation/docs-pkgsite/start_services.sh" "${PKGSITE_SOURCE}" "${PKGSITE_PORT}" "${PKGSITE_HOST}"
+CMD	"/documentation/docs-pkgsite/start_services.sh"
+
 
