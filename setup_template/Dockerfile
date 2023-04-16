@@ -30,7 +30,8 @@ ADD	$CACHEBREAKER skipcache
 # specifics for serving docs to nginx proxy.
 ENV	PKGSITE_SOURCE=/build/
 ENV	PKGSITE_PORT=3001
-ENV	PKGSITE_HOST=localhost
+#ENV	PKGSITE_HOST=localhost
+ENV	PKGSITE_HOST=
 
 # this sets PROJECT_URL, among other things.
 # (we grep out bad lines here as well for env2.sh)
@@ -58,6 +59,7 @@ RUN	timeout 180 /base/docs-pkgsite/start_services.sh \
 
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
 CMD	"/base/docs-pkgsite/start_services.sh"
+
 
 
 
