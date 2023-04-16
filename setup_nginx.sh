@@ -11,12 +11,12 @@ if [[ -z "${PROJECT_URL}" ]]; then
 	exit 1
 fi
 
-echo Creating nginx.conf: $PROJECT_URL pkgconf: http://$PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
+echo Creating nginx.conf: $PROJECT_URL  and pkgconf: http://$PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 
 # trim lead and tail spaces and slashes
 PROJECT_URL=`echo $PROJECT_URL | perl -pe "s/[\s\/]*(.*)[\/\s]*/\1/"`
 
-echo "PROJECT URL: $PROJECT_URL"
+#echo "PROJECT URL: $PROJECT_URL"
 sed  -i "s=##PROJECT_URL##=$PROJECT_URL=" nginx.conf
 sed  -i "s=##PKGSITE_HOST##=$PKGSITE_HOST=" nginx.conf
 sed  -i "s=##PKGSITE_PORT##=$PKGSITE_PORT=" nginx.conf
