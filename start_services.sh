@@ -15,9 +15,8 @@ cd $DIR
 # when the instance is created.  We need a writable
 # space on $GOPATH for pkgsite to dynamically download
 # documentation packages as needed. 
-GOPATH=/tmp/go
-PATH=$GOPATH/bin:$PATH
-cp -r /go /tmp/
+
+cp -r /go /tmp/ && chmod -R 777 /tmp/go
 
 # Start nginx
 echo "Starting Nginx ... "

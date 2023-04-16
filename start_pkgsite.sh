@@ -9,8 +9,6 @@ cd $DIR
 # for style updates, check setup_pkgsite.sh
 
 echo "====="
-env
-echo "====="
 go env
 echo "====="
 
