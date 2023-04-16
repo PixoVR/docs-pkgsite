@@ -8,8 +8,6 @@
 # make sure all these temp dirs exist, since that is our writable space
 mkdir -pv $GOPATH $GOCACHE $GOENV $GOTMPDIR
 
-#go env -w GOPROXY=https://proxy.golang.org,file://$(go env GOMODCACHE)/cache/download,direct
-
 # change to the directory of this script
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
@@ -19,34 +17,28 @@ source /env2.sh
 
 # use what's already cached!
 #GOPROXY=file://$(go env GOMODCACHE)/cache/download
+#go env -w GOPROXY=https://proxy.golang.org,file://$(go env GOMODCACHE)/cache/download,direct
 
-# Move gopath stuff to a writable place
-# this has to happen in the actual instance running,
-# because /tmp is ephemeral and writable, but empty
-# when the instance is created.  We need a writable
-# space on $GOPATH for pkgsite to dynamically download
-# documentation packages as needed. 
-#cp -r /go $GOPATH
-#cp -r /root/.cache/go-build $GOCACHE
-#cp -r /.config /tmp/.config
-#chmod -R 777 /tmp/go
+# Start pkgsite
+echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
+./start_pkgsite.sh &
+
+# pull an external library during build, so it's cached
+sleep 60
 
 # Start nginx
 echo Starting nginx for $PROJECT_URL
 nginx -g 'daemon off;' &
 
-# Start pkgsite
-echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
-#./start_pkgsite.sh 2>&1 #&	# no fork...?
-./start_pkgsite.sh &
+# Wait a moment for nginx
+sleep 5
 
-# pull an external library during build, so it's cached
-sleep 120
 echo "Pulling $PROJECT_URL/builtin"
 	#curl "http://localhost:3000/$PROJECT_URL/" 2>&1 > /dev/null
-curl "http://localhost:3000/$PROJECT_URL/builtin#string" &>/dev/null
+#curl "http://localhost:3000/$PROJECT_URL/builtin#string" &>/dev/null
 	#curl "http://localhost:3000/$PROJECT_URL/builtin#string" > /dev/null
 	#curl "http://localhost:3000/$PROJECT_URL/builtin#string"
+curl "http://localhost:3001/builtin#string"
 
 # Wait for any process to exit
 wait -n

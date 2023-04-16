@@ -23,6 +23,8 @@ echo "++++++"
 #echo "++++++"
 ls -al /
 echo "@@@@@@"
+cat /proc/cpuinfo
+echo "@@@@@@"
 
 # set to empty string
 PKGSITE_HOST=
