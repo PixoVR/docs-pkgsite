@@ -24,8 +24,8 @@ source /env2.sh
 # when the instance is created.  We need a writable
 # space on $GOPATH for pkgsite to dynamically download
 # documentation packages as needed. 
-cp -rv /go $GOPATH
-cp -rv /root/.cache/go-build $GOCACHE
+cp -r /go $GOPATH
+cp -r /root/.cache/go-build $GOCACHE
 #chmod -R 777 /tmp/go
 
 # Start nginx

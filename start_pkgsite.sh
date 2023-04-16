@@ -24,7 +24,7 @@ cd $SOURCE
 pkgsite \
 	-http $PKGSITE_HOST:$PKGSITE_PORT \
 	-static $DIR/static \
-	-cache \
+	`#-cache` \
 	-proxy \
 	`#-dev` \
 	`#-gorepo $GOROOT` \
