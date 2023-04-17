@@ -11,7 +11,7 @@ cd $DIR
 #echo "====="
 #go env
 echo "++++++"
-free
+free -h
 echo "++++++"
 whoami
 echo "++++++"
