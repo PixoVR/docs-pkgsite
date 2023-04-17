@@ -29,7 +29,7 @@ echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 [[ -z "${DEBUG}" ]] && (while true; do free -h ; sleep 5 ; done) &
 
 # Wait a moment for pkgsite to listen
-sleep 90
+sleep 60
 
 # Start nginx
 echo Starting nginx for $PROJECT_URL
