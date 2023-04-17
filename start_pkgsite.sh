@@ -6,7 +6,7 @@ cd $DIR
 
 # for style updates, check setup_pkgsite.sh
 
-if [[ -z "${DEBUG}" ]]; then
+if [[ -n "${DEBUG}" ]]; then
 	#echo "====="
 	#env
 	#echo "====="

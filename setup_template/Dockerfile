@@ -28,7 +28,7 @@ RUN	mv /build/documentation /base/documentation
 #	|| true
 
 ENV	GOGC=70
-ENV	GOMEMLIMIT=6000MiB
+ENV	GOMEMLIMIT=5000MiB
 
 ENV	DEBUG=true
 
