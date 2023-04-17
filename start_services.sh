@@ -34,12 +34,10 @@ nginx -g 'daemon off;' &
 sleep 5
 
 # pull an external library during build, so it's cached
-echo "Pulling $PROJECT_URL/builtin"
+#echo "Pulling $PROJECT_URL/builtin"
 	#curl "http://localhost:3000/$PROJECT_URL/" 2>&1 > /dev/null
 #curl "http://localhost:3000/$PROJECT_URL/builtin#string" &>/dev/null
-	#curl "http://localhost:3000/$PROJECT_URL/builtin#string" > /dev/null
-	#curl "http://localhost:3000/$PROJECT_URL/builtin#string"
-#curl "http://localhost:3001/builtin#string"
+	#curl "http://localhost:3001/builtin#string"
 
 # Wait for any process to exit
 wait -n
