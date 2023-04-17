@@ -15,6 +15,7 @@ if [[ -n "${DEBUG}" ]]; then
 	free -h
 	echo "++++++"
 	whoami
+	ifconfig -a
 	echo "++++++"
 	#du -hs /*
 	#echo "++++++"
