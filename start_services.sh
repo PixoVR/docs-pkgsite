@@ -28,12 +28,12 @@ nginx -g 'daemon off;' &
 
 # Start pkgsite
 echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
-./start_pkgsite.sh &
+./start_pkgsite.sh
 
 [[ -n "${DEBUG}" ]] && (while true; do (free -h | grep em) ; sleep 5 ; done) &
 
 # Wait a moment for pkgsite to listen
-sleep 60
+#sleep 60
 
 # pull an external library during build, so it's cached
 #echo "Pulling $PROJECT_URL/builtin"
