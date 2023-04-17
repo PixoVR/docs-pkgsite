@@ -19,6 +19,7 @@ source /env2.sh
 #GOPROXY=file://$(go env GOMODCACHE)/cache/download
 #go env -w GOPROXY=https://proxy.golang.org,file://$(go env GOMODCACHE)/cache/download,direct
 
+echo pid: $$
 echo "================================="
 
 # Start pkgsite
