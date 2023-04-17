@@ -13,16 +13,18 @@ cd $DIR
 echo "++++++"
 free
 echo "++++++"
+whoami
+echo "++++++"
 #du -hs /*
 #echo "++++++"
 #df -h
 #echo "++++++"
-mount
-echo "++++++"
+#mount
+#echo "++++++"
 #ls -al /
 #echo "@@@@@@"
-cat /proc/cpuinfo
-echo "@@@@@@"
+#cat /proc/cpuinfo
+#echo "@@@@@@"
 
 if [[ -z "${PKGSITE_PORT}" ]]; then
 	echo "PKGSITE_PORT must be set for start_pkgsite.sh"
