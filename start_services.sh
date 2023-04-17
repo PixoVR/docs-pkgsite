@@ -22,6 +22,10 @@ source /env2.sh
 echo pid: $$
 echo "================================="
 
+# Start nginx
+echo Starting nginx for $PROJECT_URL
+nginx -g 'daemon off;' &
+
 # Start pkgsite
 echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 ./start_pkgsite.sh &
@@ -30,13 +34,6 @@ echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 
 # Wait a moment for pkgsite to listen
 sleep 60
-
-# Start nginx
-echo Starting nginx for $PROJECT_URL
-nginx -g 'daemon off;' &
-
-# Wait a moment for nginx
-sleep 5
 
 # pull an external library during build, so it's cached
 #echo "Pulling $PROJECT_URL/builtin"
