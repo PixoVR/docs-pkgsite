@@ -28,7 +28,7 @@ nginx -g 'daemon off;' &
 
 # Start pkgsite
 echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
-./start_pkgsite.sh
+./start_pkgsite.sh &
 
 [[ -n "${DEBUG}" ]] && (while true; do (free -h | grep em) ; sleep 5 ; done) &
 
