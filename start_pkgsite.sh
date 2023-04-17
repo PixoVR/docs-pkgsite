@@ -34,14 +34,14 @@ if [[ -z "${PKGSITE_PORT}" ]]; then
 fi
 
 # set to empty string, which means listen to any request
-PKGSITE_HOST=
+#PKGSITE_HOST=
 
 cd $SOURCE
 pkgsite \
 	-http $PKGSITE_HOST:$PKGSITE_PORT \
 	-static $DIR/static \
 	`#-cache` \
-	-proxy \
+	`#-proxy` \
 	`#-dev` \
 	`#-gorepo $GOROOT` \
 	"$PKGSITE_SOURCE"
