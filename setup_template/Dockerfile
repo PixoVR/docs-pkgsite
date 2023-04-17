@@ -27,7 +27,7 @@ RUN	mv /build/documentation /base/documentation
 #RUN	timeout 180 /base/docs-pkgsite/start_services.sh \
 #	|| true
 
-ENV	GOGC=70
+ENV	GOGC=50
 ENV	GOMEMLIMIT=6000MiB
 
 ENV	DEBUG=true
