@@ -27,6 +27,12 @@ RUN	mv /build/documentation /base/documentation
 #RUN	timeout 180 /base/docs-pkgsite/start_services.sh \
 #	|| true
 
+ENV	GOGC=70
+ENV	GOMEMLIMIT=5000MiB
+
+ENV	DEBUG=true
+
 # We want to proxy from nginx, so we have to start both services, which is the job of start_services.sh
 CMD	"/base/docs-pkgsite/start_services.sh"
+
 

@@ -6,25 +6,27 @@ cd $DIR
 
 # for style updates, check setup_pkgsite.sh
 
-#echo "====="
-#env
-#echo "====="
-#go env
-echo "++++++"
-free -h
-echo "++++++"
-whoami
-echo "++++++"
-#du -hs /*
-#echo "++++++"
-#df -h
-#echo "++++++"
-#mount
-#echo "++++++"
-#ls -al /
-#echo "@@@@@@"
-#cat /proc/cpuinfo
-#echo "@@@@@@"
+if [[ -z "${DEBUG}" ]]; then
+	#echo "====="
+	#env
+	#echo "====="
+	#go env
+	echo "++++++"
+	free -h
+	echo "++++++"
+	whoami
+	echo "++++++"
+	#du -hs /*
+	#echo "++++++"
+	#df -h
+	#echo "++++++"
+	#mount
+	#echo "++++++"
+	#ls -al /
+	#echo "@@@@@@"
+	#cat /proc/cpuinfo
+	#echo "@@@@@@"
+fi
 
 if [[ -z "${PKGSITE_PORT}" ]]; then
 	echo "PKGSITE_PORT must be set for start_pkgsite.sh"

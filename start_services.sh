@@ -26,7 +26,7 @@ echo "================================="
 echo Starting pkgsite: $PKGSITE_HOST:$PKGSITE_PORT for $PKGSITE_SOURCE
 ./start_pkgsite.sh &
 
-(while true; do free -h ; sleep 5 ; done) &
+[[ -z "${DEBUG}" ]] && (while true; do free -h ; sleep 5 ; done) &
 
 # Wait a moment for pkgsite to listen
 sleep 90
