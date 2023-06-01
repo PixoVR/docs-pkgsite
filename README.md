@@ -1,4 +1,4 @@
-# docs-doxygen 
+# docs-pkgsite 
 
 pkgsite submodule for inclusion in SDKs that want documentation published using pkgsite, and part of the `docs-docker-base` image.
 
